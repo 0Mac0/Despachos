@@ -1,6 +1,6 @@
 # Aplicación de Despacho con Firebase
 
-Aplicación móvil desarrollada en **Kotlin** y **Jetpack Compose** que permite autenticación de usuarios, obtención de ubicación GPS, cálculo automático del despacho según reglas de negocio y almacenamiento de datos en **Firebase Realtime Database**.
+Proyecto móvil desarrollado en **Kotlin** con **Jetpack Compose**, que permite iniciar sesión con Firebase Authentication, obtener la ubicación GPS del dispositivo, calcular automáticamente el costo de despacho según reglas de negocio y almacenar la información en Firebase Realtime Database.
 
 ---
 
@@ -9,7 +9,7 @@ Aplicación móvil desarrollada en **Kotlin** y **Jetpack Compose** que permite 
 | Nombre |
 |--------|
 | FRANCISCO SILVA |
-| CATALINA URIBE|
+| CATALINA URIBE |
 
 ---
 
@@ -28,11 +28,11 @@ Aplicación móvil desarrollada en **Kotlin** y **Jetpack Compose** que permite 
 
 ---
 
-## Descripción
+## Descripción del proyecto
 
-Este proyecto consiste en una aplicación móvil diseñada para automatizar el cálculo del valor de despacho de productos según la distancia entre un origen y un destino, además del monto total de compra.  
-La aplicación permite iniciar sesión con correo y contraseña, registrar usuarios, obtener la ubicación GPS del dispositivo y guardar información en la nube mediante Firebase.
+Este proyecto consiste en una aplicación móvil diseñada para automatizar el cálculo del valor de despacho de productos según la distancia entre un punto de origen y un destino ingresado por el usuario, además del monto total de compra.
 
+La aplicación permite iniciar sesión con correo electrónico y contraseña, registrar usuarios, obtener la ubicación GPS del dispositivo y guardar información en la nube mediante Firebase.  
 La solución fue creada para responder al caso de una empresa distribuidora de alimentos, donde se requiere calcular el despacho de forma automática y almacenar los datos en una base de datos en tiempo real.
 
 ---
@@ -80,57 +80,28 @@ Desarrollar una aplicación móvil que permita autenticar usuarios, calcular el 
 
 ---
 
-## Historias de usuario
+## Punto de origen del cálculo
 
-| ID | Historia de usuario | Estado |
-|----|---------------------|--------|
-| HU1 | Como usuario, quiero iniciar sesión para acceder a la aplicación | Completada |
-| HU2 | Como usuario, quiero registrarme para usar el sistema | Completada |
-| HU3 | Como usuario, quiero ingresar compra y destino para calcular el despacho | Completada |
-| HU4 | Como usuario, quiero ver el resultado del despacho en pantalla | Completada |
-| HU5 | Como sistema, quiero guardar la ubicación GPS del dispositivo | Completada |
-| HU6 | Como usuario, quiero que los datos queden almacenados en la nube | Completada |
+Para realizar el cálculo de distancia y despacho se estableció una coordenada fija como punto de origen.  
+Este punto corresponde a la **Plaza Colón de Antofagasta**, y fue utilizado como referencia principal para medir la distancia hacia el destino ingresado por el usuario.
 
----
+**Coordenada de origen usada en la aplicación:**
 
-## Tecnologías utilizadas
+- Latitud: `-23.647022`
+- Longitud: `-70.398159`
 
-| Tecnología | Uso |
-|------------|-----|
-| Kotlin | Lógica principal de la app |
-| Jetpack Compose | Interfaz de usuario |
-| Firebase Authentication | Inicio de sesión y registro |
-| Firebase Realtime Database | Almacenamiento de datos |
-| Google Play Services Location | Obtención de ubicación GPS |
-| Android Studio | Entorno de desarrollo |
+Esta ubicación se emplea como base para el cálculo de la distancia angular y posteriormente para determinar el valor del despacho según las reglas de negocio.
 
 ---
 
-## Estructura del proyecto
+## Configuración de Firebase y seguridad
 
-| Archivo | Descripción |
-|---------|-------------|
-| `MainActivity.kt` | Pantalla de login y registro |
-| `MenuActivity.kt` | Pantalla principal con cálculo de despacho |
-| `AndroidManifest.xml` | Permisos y declaración de actividades |
-| `build.gradle.kts` | Dependencias y configuración del proyecto |
-| `libs.versions.toml` | Versiones de dependencias |
-| `google-services.json` | Configuración de Firebase |
+La base de datos **Firebase Realtime Database** fue configurada con reglas de seguridad que permiten lectura y escritura únicamente a usuarios autenticados:
 
----
-
-## Configuración de Firebase
-
-Para este proyecto se configuró Firebase Authentication y Firebase Realtime Database.  
-Las reglas utilizadas en la base de datos son las siguientes:
-
+```json
 {
   "rules": {
     ".read": "auth != null",
     ".write": "auth != null"
   }
 }
-
-Estas reglas permiten que solo los usuarios autenticados puedan leer y escribir datos en la base de datos.
-
-

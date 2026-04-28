@@ -6,7 +6,7 @@ Proyecto móvil desarrollado en **Kotlin** con **Jetpack Compose**, que permite 
 
 ## Integrantes
 
-| Nombre |
+| Nombre y Apellido |
 |--------|
 | FRANCISCO SILVA |
 | CATALINA URIBE |
@@ -18,7 +18,7 @@ Proyecto móvil desarrollado en **Kotlin** con **Jetpack Compose**, que permite 
 | Ítem | Descripción |
 |------|-------------|
 | Nombre del proyecto | Aplicación de Despacho con Firebase |
-| Plataforma | Android |
+| Plataforma | Android Studio |
 | Lenguaje | Kotlin |
 | Interfaz | Jetpack Compose |
 | Base de datos | Firebase Realtime Database |
@@ -77,6 +77,25 @@ Desarrollar una aplicación móvil que permita autenticar usuarios, calcular el 
 | Cálculo de despacho | Implementado |
 | Guardado en Realtime Database | Implementado |
 | Cierre de sesión | Implementado |
+
+---
+
+## Distribución de responsabilidades
+
+| Actividad | Responsable |
+|----------|-------------|
+| Creación de la estructura inicial del proyecto | FRANCISCO |
+| Configuración de Firebase Authentication | CATALINA |
+| Implementación de la pantalla de login | FRANCISCO |
+| Implementación del registro de usuario | CATALINA |
+| Desarrollo de la pantalla principal | FRANCISCO |
+| Cálculo de distancia y despacho | CATALINA |
+| Integración del GPS del dispositivo | FRANCISCO |
+| Guardado de datos en Realtime Database | CATALINA |
+| Configuración de permisos en AndroidManifest | FRANCISCO |
+| Diseño y organización de la interfaz | CATALINA |
+| Redacción del README y documentación | FRANCISCO |
+| Revisión final y evidencias | CATALINA |
 
 ---
 

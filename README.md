@@ -1,4 +1,6 @@
 # Aplicación de Despacho con Firebase
+![Logo](Evidencias/AIEP.jpg)
+
 
 Proyecto móvil desarrollado en **Kotlin** con **Jetpack Compose**, que permite iniciar sesión con Firebase Authentication, obtener la ubicación GPS del dispositivo, calcular automáticamente el costo de despacho según reglas de negocio y almacenar la información en Firebase Realtime Database.
 
